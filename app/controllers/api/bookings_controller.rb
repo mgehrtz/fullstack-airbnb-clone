@@ -23,6 +23,24 @@ module Api
         @bookings = property.bookings.where("end_date > ? ", Date.today)
         render 'api/bookings/index'
       end
+
+      def get_booking_by_id 
+        booking = Booking.find_by(id: params[:id])
+        property = Property.find_by(id: booking.property_id)
+
+        if booking && property
+          render json: {
+            start_date: booking.start_date,
+            end_date: booking.end_date,
+            property_id: booking.property_id,
+            image_url: property.image_url,
+            property_title: property.title,
+            property_description: property.description
+          }, status: :ok
+        else
+          render json: { error: 'Record not found. Invalid ID.' }, status: :not_found
+        end
+      end
   
       private
   

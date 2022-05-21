@@ -51,7 +51,7 @@ const Layout = (props) => {
                 props.isLoggedIn && 
                 <ul>
                   <li className='nav-item'>
-                    <a href='#' className='btn menu-item bookings-btn'>My Bookings</a>
+                    <a href='#' className='btn menu-item bookings-btn'>My Stays</a>
                   </li>
                   <li className='nav-item'>
                     <a href='#' className='btn menu-item properties-btn'>My Properties</a>
